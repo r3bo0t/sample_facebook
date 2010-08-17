@@ -1,0 +1,59 @@
+pi key, secret key, and canvas page name are required to get started
+# Tunnel configuration is only needed if you are going to use the facebooker:tunnel Rake tasks
+# Your callback url in Facebook should be set to http://public_host:public_port
+# If you're building a Facebook connect site, 
+#    change the value of set_asset_host_to_callback_url to false
+# To develop for the new profile design, add the following key..
+# api: new
+# remove the key or set it to anything else to use the old facebook design.
+# This should only be necessary until the final version of the new profile is released.
+
+development:
+  api_key: fcd38bf31af403bcdafdf5c8e6dd1c0e #bb0c9bedcc37d0ae84368e67f177b73c
+  secret_key: 3eb33e0764feecd63d9bd819fcfeb3fb #49508cdbc18a2c044b2bd3c0527ca7bb
+  canvas_page_name: localcin
+  #~ canvas_page_name:
+  #~ callback_url: http://127.0.0.1:3000
+  #~ pretty_errors: true
+  #~ set_asset_host_to_callback_url: true
+
+staging:
+  api_key: 74ba654bc16d34c04efd16b3d92b9415 # bb0c9bedcc37d0ae84368e67f177b73c
+  secret_key: a6cd35c987c4b22e47bdf499a0c43221 #49508cdbc18a2c044b2bd3c0527ca7bb
+  canvas_page_name: gcinemucho
+  #~ callback_url: http://usmov.sapnasolutions.com
+  #~ pretty_errors: true
+  #~ set_asset_host_to_callback_url: true
+  #~ tunnel:
+  #~ public_host_username: 
+  #~ public_host: 
+  #~ public_port: 4007
+  #~ local_port: 3000
+  #~ server_alive_interval: 0
+
+build:
+  api_key: c9b3a8a1884b58f88c02dd541cb18ce7
+  secret_key: 592b95c9e7707dd54bd518c65dcb002f
+  canvas_page_name: bcinemucho  
+benchmarking:
+  api_key: bb0c9bedcc37d0ae84368e67f177b73c
+  secret_key: 49508cdbc18a2c044b2bd3c0527ca7bb
+
+test:
+  api_key: bb0c9bedcc37d0ae84368e67f177b73c
+  secret_key: 49508cdbc18a2c044b2bd3c0527ca7bb
+  canvas_page_name: cinemucho
+
+production:
+  api_key: bb0c9bedcc37d0ae84368e67f177b73c
+  secret_key: 49508cdbc18a2c044b2bd3c0527ca7bb
+  canvas_page_name: cinemucho
+#  callback_url: 
+#  set_asset_host_to_callback_url: true   
+#  tunnel:
+#    public_host_username: 
+#    public_host: 
+#    public_port: 4007
+#    local_port: 3000
+#    server_alive_interval: 0
+
