@@ -1,0 +1,269 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1318.1ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (435.7ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100816093742)
+  [4;35;1mSQL (169.4ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `single_access_token` varchar(255) NOT NULL, `perishable_token` varchar(255) NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL, `last_request_at` datetime, `current_login_at` datetime, `last_login_at` datetime, `current_login_ip` varchar(255), `last_login_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (65.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100816093742')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (36.6ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (4.6ms)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100816093742)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (4.2ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-08-16 15:23:29) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+
+NoMethodError (undefined method `require_user' for #<UsersController:0x1022b0a68>):
+  
+
+Rendered rescues/_trace (69.1ms)
+Rendered rescues/_request_and_response (1.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (2.9ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-08-16 15:24:49) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Columns (25.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Redirected to http://localhost:4000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 174ms (DB: 29) | 302 Found [http://localhost/account]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-08-16 15:24:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (2.6ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering user_sessions/new
+Completed in 183ms (View: 160, DB: 3) | 200 OK [http://localhost/user_session/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-08-16 15:25:12) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"1", "password"=>"[FILTERED]", "login"=>"sandeep"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (29.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (47.1ms)[0m   [0mSELECT * FROM `users` WHERE (LOWER(`users`.login) = 'sandeep') LIMIT 1[0m
+Rendering user_sessions/new
+Completed in 478ms (View: 11, DB: 76) | 200 OK [http://localhost/user_session]
+  [4;36;1mSQL (8.5ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-08-16 15:25:24) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering user_sessions/new
+Completed in 29ms (View: 5, DB: 13) | 200 OK [http://localhost/user_session/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-08-16 15:26:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (5.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering user_sessions/new
+Completed in 35ms (View: 7, DB: 6) | 200 OK [http://localhost/user_session/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#show (for 127.0.0.1 at 2010-08-16 15:26:29) [GET]
+  Parameters: {"action"=>"show", "controller"=>"user_sessions"}
+
+ActionController::UnknownAction (No action responded to show. Actions: create, destroy, and new):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-08-16 15:26:37) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (3.1ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+Rendering user_sessions/new
+Completed in 31ms (View: 5, DB: 3) | 200 OK [http://localhost/user_session/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#create (for 127.0.0.1 at 2010-08-16 15:26:57) [POST]
+  Parameters: {"commit"=>"Login", "user_session"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "login"=>"sandeep"}, "action"=>"create", "controller"=>"user_sessions"}
+  [4;35;1mUser Columns (21.1ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (LOWER(`users`.login) = 'sandeep') LIMIT 1[0m
+Rendering user_sessions/new
+Completed in 176ms (View: 11, DB: 22) | 200 OK [http://localhost/user_session]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-08-16 15:27:13) [GET]
+
+ActionController::RoutingError (No route matches "/user/new" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-08-16 15:27:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (3.9ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+Rendering users/new
+Rendered users/_form (11.7ms)
+Completed in 84ms (View: 62, DB: 4) | 200 OK [http://localhost/users/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-08-16 15:27:35) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"sandeepkymca"}}
+  [4;36;1mUser Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (32.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (106.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'sandeepkymca') LIMIT 1[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a4609e977acbe42b1289907a39cc3337a64f1e0f49191803aa5d1b8c55137e747ab8d497a28807470d92411e63443551173d6c0b3b95406948ad83ffb554cccc') LIMIT 1[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'FfAwjMJKsfBwDdVLVS9') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+Rendering users/new
+Rendered users/_form (4.1ms)
+Completed in 278ms (View: 12, DB: 144) | 200 OK [http://localhost/account]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-08-16 15:27:52) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"skr.ymca@gmail.com"}}
+  [4;36;1mUser Columns (4.7ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'skr.ymca@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a6ad47019bd86ce828de2ef118018ddb00ebc0ae2d085b86daab2de4e558df3d3ad61f26776a824e74318cca055e17e62990499a95fe7165ecc9add034ffcf10') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'wkdji2F7TjwMUt267C3') LIMIT 1[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mROLLBACK[0m
+Rendering users/new
+Rendered users/_form (2.0ms)
+Completed in 45ms (View: 8, DB: 8) | 200 OK [http://localhost/account]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-08-16 15:27:58) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"skr.ymca@gmail.com"}}
+  [4;36;1mUser Columns (5.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'skr.ymca@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'd6411bbede8277dcc16c68860870e139642e04972bc407199c3070a54d3587bf9d1dffc89ccdcbcad8ac9c8ec4c2387e7a7898710b5a7ff19a12133ce619886b') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'QHY7sCibtSATqqW5NIFn') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+Rendering users/new
+Rendered users/_form (2.1ms)
+Completed in 46ms (View: 9, DB: 7) | 200 OK [http://localhost/account]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-08-16 15:30:04) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"skr.ymca@gmail.com"}}
+  [4;36;1mUser Columns (44.9ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'skr.ymca@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'nzURGePjXfJGYF1yagHB') LIMIT 1[0m
+  [4;35;1mUser Create (0.0ms)[0m   [0mMysql::Error: Column 'email' cannot be null: INSERT INTO `users` (`single_access_token`, `last_request_at`, `created_at`, `crypted_password`, `perishable_token`, `updated_at`, `failed_login_count`, `current_login_ip`, `password_salt`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('nzURGePjXfJGYF1yagHB', '2010-08-16 10:00:05', '2010-08-16 10:00:05', '80d288373e39ca2df91920d797304762918d06cb9f490e034ba76d6f0a96f94351216bb89d02dd3fcfafde4f84367c580d8a83db1156a52a5f08b804e27e3952', 'glh9SeaeyuiTgMpN0Ptm', '2010-08-16 10:00:05', 0, '127.0.0.1', '4z2OfZ12Fltrk0r0Fw0', '2010-08-16 10:00:04', '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7', 1, NULL, 'skr.ymca@gmail.com', NULL, NULL)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+
+ActiveRecord::StatementInvalid (Mysql::Error: Column 'email' cannot be null: INSERT INTO `users` (`single_access_token`, `last_request_at`, `created_at`, `crypted_password`, `perishable_token`, `updated_at`, `failed_login_count`, `current_login_ip`, `password_salt`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('nzURGePjXfJGYF1yagHB', '2010-08-16 10:00:05', '2010-08-16 10:00:05', '80d288373e39ca2df91920d797304762918d06cb9f490e034ba76d6f0a96f94351216bb89d02dd3fcfafde4f84367c580d8a83db1156a52a5f08b804e27e3952', 'glh9SeaeyuiTgMpN0Ptm', '2010-08-16 10:00:05', 0, '127.0.0.1', '4z2OfZ12Fltrk0r0Fw0', '2010-08-16 10:00:04', '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7', 1, NULL, 'skr.ymca@gmail.com', NULL, NULL)):
+  app/controllers/users_controller.rb:11:in `create'
+
+Rendered rescues/_trace (116.4ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-08-16 15:33:01) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+Redirected to http://localhost:4000/user_session/new
+Filter chain halted as [:require_user] rendered_or_redirected.
+Completed in 96ms (DB: 3) | 302 Found [http://localhost/account]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UserSessionsController#new (for 127.0.0.1 at 2010-08-16 15:33:01) [GET]
+  Parameters: {"action"=>"new", "controller"=>"user_sessions"}
+  [4;36;1mUser Columns (67.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (3.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+Rendering user_sessions/new
+Completed in 124ms (View: 26, DB: 71) | 200 OK [http://localhost/user_session/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-08-16 15:33:08) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (4.8ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (4.9ms)
+Completed in 50ms (View: 17, DB: 6) | 200 OK [http://localhost/users/new]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-08-16 15:33:20) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"sandeepkymca", "email"=>"skr.ymca@gmail.com"}}
+  [4;36;1mUser Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (2.8ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'sandeepkymca') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '8f1f1e17488ec9f379bb474af1400abeb91f629311452f21ea076aa275f2049be4c4aa150eef0a05c08ba3375ec995fe72b602492f230f00f4844c8b242a6e7d') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'y5F3El0ksWqdMgLi9CBh') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '6da3ab9d37707ac345a3002f629c876c70c272ed7451ca5251132114199033b0f86ded68e84eca1739e4862d67ab4ebad7fd35b2defdcb539a63e67ae4aaead7') LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`single_access_token`, `last_request_at`, `created_at`, `crypted_password`, `perishable_token`, `updated_at`, `failed_login_count`, `current_login_ip`, `password_salt`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('y5F3El0ksWqdMgLi9CBh', '2010-08-16 10:03:20', '2010-08-16 10:03:20', 'ccfc7f4e950f5a127cd6dca1871c482b95a11675e0671930060284fcdec1a2c6ff8ef2ef10f76758912eefe5b936b9072a6592af1636f078ef43319c8e9025fa', 'bvICoWuFw6IgZN5BHdT', '2010-08-16 10:03:20', 0, '127.0.0.1', 'WxJn671pT2M0x34k7ENu', '2010-08-16 10:03:20', '8f1f1e17488ec9f379bb474af1400abeb91f629311452f21ea076aa275f2049be4c4aa150eef0a05c08ba3375ec995fe72b602492f230f00f4844c8b242a6e7d', 1, NULL, 'sandeepkymca', NULL, 'skr.ymca@gmail.com')[0m
+  [4;36;1mSQL (18.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:4000/account
+Completed in 67ms (DB: 26) | 302 Found [http://localhost/account]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-08-16 15:33:21) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;35;1mUser Columns (38.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (101.5ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '8f1f1e17488ec9f379bb474af1400abeb91f629311452f21ea076aa275f2049be4c4aa150eef0a05c08ba3375ec995fe72b602492f230f00f4844c8b242a6e7d') LIMIT 1[0m
+  [4;35;1mSQL (45.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (111.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2010-08-16 10:03:21', `perishable_token` = 'JlMk2QNzeZJpXNX1qo9z', `last_request_at` = '2010-08-16 10:03:21' WHERE `id` = 1[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mCOMMIT[0m
+Rendering users/show
+Completed in 377ms (View: 27, DB: 300) | 200 OK [http://localhost/account]
